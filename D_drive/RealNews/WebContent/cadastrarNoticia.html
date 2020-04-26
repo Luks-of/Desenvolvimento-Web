@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<meta charset="utf-8">
+<title>CADASTRO NOTICIAS</title>
+</head>
+<body>
+<h2><b>REAL NEWS</b></h2>
+<br>
+	<h5>CADASTRE SUA NOTÍCIA AQUI!</h5>
+	<form action="CadastrarNoticia.do" method="post">
+		<tr>
+			N° da Notícia:<input type="number" name="id_noticia" size="5">
+		</tr>
+		<br> <br>
+		<tr>
+			Descrição:
+			<textarea name="descricao_noticia" rows="4" cols="20"></textarea>
+		</tr>
+		<br> <br>
+		<tr>
+			Título:
+			<input type="text" name="titulo_noticia" size="20">
+		</tr>
+		<br> <br>
+		<tr>
+			Texto:
+			<textarea name="texto_noticia" rows="12" cols="20"></textarea>
+		</tr>
+		<br> <br> <input type="submit" />
+	</form>
+		<br>
+		<a href="http://localhost:8080/RealNews/homeNoticia.html"><button>Home Notícia</button></a>
+</body>
+</html>
