@@ -12,24 +12,24 @@
 	<form action="AlterarNoticia.do" method="post">
 		<tr>
 			N° da Notícia:
-			<input type="number" name="id_noticia" size="5">
+			<input type="number" name="id_noticia" size="5"required>
 		</tr>
 		<br> <br>
 		<tr>
 			Descrição:
-			<textarea name="descricao_noticia" rows="4" cols="20"></textarea>
+			<textarea name="descricao_noticia" rows="4" cols="20"required></textarea>
 		</tr>
 		<br> <br>
 		<tr>
 			Título:
-			<input type="text" name="titulo_noticia" size="20">
+			<input type="text" name="titulo_noticia" size="20"required>
 		</tr>
 		<br> <br>
 		<tr>
 			Texto:
-			<textarea name="texto_noticia" rows="12" cols="20"></textarea>
+			<textarea name="texto_noticia" rows="12" cols="20"required></textarea>
 		</tr>
-		<br> <br> <input type="submit" />
+		<br> <br> <input type="submit" value="Alterar"/>
 	</form>
 	<br>
 		<a href="http://localhost:8080/RealNews/homeNoticia.html"><button>Home Notícia</button></a>

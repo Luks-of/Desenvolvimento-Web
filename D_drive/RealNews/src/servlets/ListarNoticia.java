@@ -34,11 +34,24 @@ public class ListarNoticia extends HttpServlet {
 		ArrayList<Noticia> lista = ser.listarNoticia();
 		ArrayList<Comentario> lista2 = serC.listarComentario();
 		
-		saida.println("<h2><b>REAL NEWS</b></h2><br><br>");
+		
+		response.setContentType("text/html; charset=UTF-8");
+		
+		saida.println("<!DOCTYPE html>\r\n" + 
+				"<html>\r\n" + 
+				"<head>\r\n" + 
+				"<meta charset=\"ISO-8859-1\">\r\n" + 
+				"<title>Comentar</title>\r\n" + 
+				"</head>\r\n" + 
+				"<body>\r\n" + 
+				"<h2><b>REAL NEWS</b></h2><br><br>");
+		
+		
 		
 		for (Noticia n : lista) {
 			
-			saida.println("<h4>N° da Notícia:" + n.getIdNoticia()+ "</h4>"
+			
+			saida.println("<b>N° da Notícia:" + n.getIdNoticia()+ "</b>"
 			+ "<br><b>Descrição:</b> " + n.getDescricaoNoticia() 
 			+ "<br><b>Título:</b> " + n.getTituloNoticia()
 			+ "<br><b>Texto:</b> " + n.getTextoNoticia() + "<br>");
@@ -53,37 +66,33 @@ public class ListarNoticia extends HttpServlet {
 					+ "<br>N° Notícia: " + c.getIdNoticia() + "<br>");
 					
 				}				
-			}
-			saida.println("<!DOCTYPE html>\r\n" + 
-					"<html>\r\n" + 
-					"<head>\r\n" + 
-					"<meta charset=\"ISO-8859-1\">\r\n" + 
-					"<title>Comentar</title>\r\n" + 
-					"</head>\r\n" + 
-					"<body>\r\n" + 
+			}	
+			saida.println(
 					"	<h2>Adicione seu comentário aqui!</h2>\r\n" + 
 					"	<form action=\"CadastrarComentario.do\" method=\"post\">\r\n" + 
 					"		<tr>\r\n" + 
-					"			N° da Notícia:<input type=\"number\" name=\"id_noticia\" size=\"5\">\r\n" + 
+					"			N° da Notícia:<input type=\"number\" name=\"id_noticia\" size=\"5\"required>\r\n" + 
 					"		</tr>\r\n" + 
 					"		<br> <br>\r\n" + 
 					"		<tr>\r\n" + 
 					"			Nome:\r\n" + 
-					"			<input type=\"text\" name=\"nome_comentario\" size=\"20\">\r\n" + 
+					"			<input type=\"text\" name=\"nome_comentario\" size=\"20\"required>\r\n" + 
 					"		</tr>\r\n" + 
 					"		<br> <br>\r\n" + 
 					"		<tr>\r\n" + 
-					"			Texto:\r\n" + 
-					"			<textarea name=\"texto_comentario\" rows=\"3\" cols=\"30\"></textarea>\r\n" + 
+					"			Comentário:\r\n" + 
+					"			<textarea name=\"texto_comentario\" rows=\"3\" cols=\"30\"required></textarea>\r\n" + 
 					"		</tr>\r\n" + 
-					"		<br> <br> <input type=\"submit\" />\r\n" + 
+					"		<br> <br> <button type=\"submit\">Comentar</button>" + 
 					"	</form>\r\n" + 
-					"<br>\r\n" + 
-					"		<a href=\"http://localhost:8080/RealNews/homeNoticia.html\"><button>Home Notícia</button></a>\r\n" + 
-					"</body>\r\n" + 
-					"</html>");
+					"<br>\r\n");
+					
 
 		}
+		
+		saida.println("<a href="+"http://localhost:8080/RealNews/homeNoticia.html>"+"<button>Home Notícia</button></a>"+ 
+				"</body>" + 
+				"</html>");
 	}
 }
 
